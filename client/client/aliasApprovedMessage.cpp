@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "aliasApprovedMessage.h"
+#include "Messages.h"
 #include "binaryConverter.h"
 
 aliasApprovedMessage::aliasApprovedMessage() : message(types::ALIAS_APPROVED) {}

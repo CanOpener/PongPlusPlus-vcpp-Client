@@ -1,6 +1,8 @@
 #pragma once
 #include "stdafx.h"
 #include <cstdint>
+#include <string>
+using namespace std;
 
 class dataMessage {
 private:
@@ -52,4 +54,42 @@ enum types : uint8_t {
 	STATE_UPDATE,
 	GAME_OVER,
 	MOVE
+};
+
+class requestAliasMessage : public message
+{
+private:
+	string alias;
+public:
+	requestAliasMessage();
+	requestAliasMessage(string a);
+	requestAliasMessage(dataMessage* dm);
+
+	string getAlias();
+	void setAlias(string a);
+
+	dataMessage* getDataMessage();
+};
+
+class aliasApprovedMessage : public message
+{
+public:
+	aliasApprovedMessage();
+	aliasApprovedMessage(dataMessage* dm);
+
+	dataMessage* getDataMessage();
+};
+
+class aliasDeniedMessage : public message
+{
+	string reason;
+public:
+	aliasDeniedMessage();
+	aliasDeniedMessage(string r);
+	aliasDeniedMessage(dataMessage* dm);
+
+	string getReason();
+	void setReason(string r);
+
+	dataMessage* getDataMessage();
 };

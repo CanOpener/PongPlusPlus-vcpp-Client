@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "aliasDeniedMessage.h"
+#include "Messages.h"
 #include "binaryConverter.h"
 
 aliasDeniedMessage::aliasDeniedMessage() : message(types::ALIAS_DENIED) {}

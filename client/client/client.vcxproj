@@ -151,11 +151,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="aliasApprovedMessage.h" />
-    <ClInclude Include="aliasDeniedMessage.h" />
     <ClInclude Include="binaryConverter.h" />
     <ClInclude Include="Messages.h" />
-    <ClInclude Include="requestAliasMessage.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

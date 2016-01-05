@@ -5,14 +5,12 @@
 #include <string>
 #include <iostream>
 #include "binaryConverter.h"
-#include "aliasApprovedMessage.h"
-#include "aliasDeniedMessage.h"
-#include "requestAliasMessage.h"
+#include "Messages.h"
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-	requestAliasMessage request("FuckNugget Jonny boi!");
+	requestAliasMessage request("This username should be waaaaayyy too long");
 	auto dm = request.getDataMessage();
 	dm->prefix();
 
@@ -41,7 +39,9 @@ int main(int argc, char *argv[])
 		auto denied = aliasDeniedMessage(newDm);
 		cout << "Denied : " << denied.getReason() << endl;
 	}
-	cout << "Unknown message received" << endl;
+	else {
+		cout << "Unknown message received" << endl;
+	}
 
 	return 0;
 }

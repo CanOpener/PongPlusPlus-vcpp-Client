@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "requestAliasMessage.h"
+#include "Messages.h"
 #include "binaryConverter.h"
 
 requestAliasMessage::requestAliasMessage() : message(types::REQUEST_ALIAS) {}

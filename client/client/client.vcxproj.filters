@@ -33,15 +33,6 @@
     <ClInclude Include="Messages.h">
       <Filter>Header Files\Messages</Filter>
     </ClInclude>
-    <ClInclude Include="requestAliasMessage.h">
-      <Filter>Header Files\Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="aliasApprovedMessage.h">
-      <Filter>Header Files\Messages</Filter>
-    </ClInclude>
-    <ClInclude Include="aliasDeniedMessage.h">
-      <Filter>Header Files\Messages</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client.cpp">
