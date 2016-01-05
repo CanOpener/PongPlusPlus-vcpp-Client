@@ -53,35 +53,29 @@ message prefixMessage(message m) {
 
 int main(int argc, char *argv[])
 {
-	BYTE bts[14];
+	BYTE bts[24];
 	uint32_t x1 = 7483;
-	uint8_t x2 = 32;
-	auto x3 = "Hello!\0";
-	uint16_t x4 = 324;
-	auto seeker = bts;
-	
-	memcpy(seeker, &x1, 4);
-	seeker += 4;
-	memcpy(seeker, &x2, 1);
-	seeker += 1;
-	memcpy(seeker, x3, 7);
-	seeker += 7;
-	memcpy(seeker, &x4, 2);
-	seeker += 2;
+	string x2 = "Cool";
+	uint8_t x3 = 75;
+	string x4 = "Hey!";
+	string x5 = "Hello!";
+	uint16_t x6 = 324;
 
+	auto seeker = bts;
+	binaryConverter::writeUint32(&seeker, x1);
+	binaryConverter::writeString(&seeker, x2);
+	binaryConverter::writeUint8 (&seeker, x3);
+	binaryConverter::writeString(&seeker, x4);
+	binaryConverter::writeString(&seeker, x5);
+	binaryConverter::writeUint16(&seeker, x6);
 	seeker = bts;
 
-	cout << "32uint : " << (int)binaryConverter::getUint32(&seeker) << endl;
-	cout << "8uint : " << (int)binaryConverter::getUint8(&seeker) << endl;
-	cout << "string : " << binaryConverter::getString(&seeker) << endl;
-	cout << "16uint : " << (int)binaryConverter::getUint16(&seeker) << endl << endl;
-	
-	cout << "sizeof uint8_t : " << sizeof(uint8_t) << endl;
-	cout << "sizeof uint16_t : " << sizeof(uint16_t) << endl;
-	cout << "sizeof uint32_t : " << sizeof(uint32_t) << endl;
-	cout << "sizeof int : " << sizeof(int) << endl;
-	cout << "sizeof long : " << sizeof(long) << endl;
-	cout << "sizeof long long : " << sizeof(long long) << endl;
+	cout << "32uint : " << (int)binaryConverter::readUint32(&seeker) << endl;
+	cout << "string : " << binaryConverter::readString(&seeker) << endl;
+	cout << "8uint : " << (int)binaryConverter::readUint8(&seeker) << endl;
+	cout << "string : " << binaryConverter::readString(&seeker) << endl;
+	cout << "string : " << binaryConverter::readString(&seeker) << endl;
+	cout << "16uint : " << (int)binaryConverter::readUint16(&seeker) << endl << endl;
 	return 0;
 }
 
