@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include "binaryConverter.h"
 using namespace std;
 
 typedef unsigned char BYTE;
@@ -52,21 +53,35 @@ message prefixMessage(message m) {
 
 int main(int argc, char *argv[])
 {
-	requestAliasMsg requestMsg("Windows");
-	auto msg = prefixMessage(requestMsg.bytes());
+	BYTE bts[14];
+	uint32_t x1 = 7483;
+	uint8_t x2 = 32;
+	auto x3 = "Hello!\0";
+	uint16_t x4 = 324;
+	auto seeker = bts;
 	
-	SDLNet_Init();
+	memcpy(seeker, &x1, 4);
+	seeker += 4;
+	memcpy(seeker, &x2, 1);
+	seeker += 1;
+	memcpy(seeker, x3, 7);
+	seeker += 7;
+	memcpy(seeker, &x4, 2);
+	seeker += 2;
 
-	IPaddress ip;
-	SDLNet_ResolveHost(&ip, "pong.dynastysoftware.net", 3000);
+	seeker = bts;
 
-	auto socket = SDLNet_TCP_Open(&ip);
-	cout << "IP address: " << ip.host << endl;
-
-	SDLNet_TCP_Send(socket, msg.data, msg.dataSize);
-
-	SDLNet_TCP_Close(socket);
-	SDLNet_Quit();
+	cout << "32uint : " << (int)binaryConverter::getUint32(&seeker) << endl;
+	cout << "8uint : " << (int)binaryConverter::getUint8(&seeker) << endl;
+	cout << "string : " << binaryConverter::getString(&seeker) << endl;
+	cout << "16uint : " << (int)binaryConverter::getUint16(&seeker) << endl << endl;
+	
+	cout << "sizeof uint8_t : " << sizeof(uint8_t) << endl;
+	cout << "sizeof uint16_t : " << sizeof(uint16_t) << endl;
+	cout << "sizeof uint32_t : " << sizeof(uint32_t) << endl;
+	cout << "sizeof int : " << sizeof(int) << endl;
+	cout << "sizeof long : " << sizeof(long) << endl;
+	cout << "sizeof long long : " << sizeof(long long) << endl;
 	return 0;
 }
 
