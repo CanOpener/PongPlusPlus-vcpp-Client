@@ -1,5 +1,7 @@
 #pragma once
 #include "stdafx.h"
+#include "gameDescriptor.h"
+#include <vector>
 #include <cstdint>
 #include <string>
 using namespace std;
@@ -24,20 +26,6 @@ public:
 	void prefix();
 };
 
-class message
-{
-protected:
-	uint8_t messageType;
-public:
-	message();
-	message(uint8_t typ);
-
-	virtual uint8_t getMessageType();
-	virtual void setMessageType(uint8_t typ);
-
-	virtual dataMessage* getDataMessage() = 0;
-};
-
 enum types : uint8_t {
 	REQUEST_ALIAS = 1,
 	ALIAS_APPROVED,
@@ -54,6 +42,20 @@ enum types : uint8_t {
 	STATE_UPDATE,
 	GAME_OVER,
 	MOVE
+};
+
+class message
+{
+protected:
+	uint8_t messageType;
+public:
+	message();
+	message(uint8_t typ);
+
+	virtual uint8_t getMessageType();
+	virtual void setMessageType(uint8_t typ);
+
+	virtual dataMessage* getDataMessage() = 0;
 };
 
 class requestAliasMessage : public message
@@ -93,3 +95,83 @@ public:
 
 	dataMessage* getDataMessage();
 };
+
+class requestGameListMessage : public message
+{
+public:
+	requestGameListMessage();
+	requestGameListMessage(dataMessage* dm);
+
+	dataMessage* getDataMessage();
+};
+
+class gameListMessage : public message
+{
+private:
+	vector<gameDescriptor> games;
+
+public:
+	gameListMessage();
+	gameListMessage(vector<gameDescriptor> vgd);
+	gameListMessage(dataMessage* dm);
+
+	vector<gameDescriptor> getGames();
+	void setGames(vector<gameDescriptor> vgd);
+
+	dataMessage* getDataMessage();
+};
+
+class createGameMessage : public message
+{
+private:
+	string gameName;
+public:
+	createGameMessage();
+	createGameMessage(string n);
+	createGameMessage(dataMessage* dm);
+
+	string getGameName();
+	void setGameName(string n);
+
+	dataMessage* getDataMessage();
+};
+
+class createGameApprovedMessage : public message 
+{
+private:
+	string gameID;
+	string gameName;
+
+public:
+	createGameApprovedMessage();
+	createGameApprovedMessage(string id, string n);
+	createGameApprovedMessage(dataMessage* dm);
+
+	string getGameID();
+	void setGameID(string id);
+
+	string getGameName();
+	void setGameName(string n);
+
+	dataMessage* getDataMessage();
+};
+
+class createGameDeniedMessage : public message
+{
+private:
+	string gameName;
+	string reason;
+public:
+	createGameDeniedMessage();
+	createGameDeniedMessage(string n, string r);
+	createGameDeniedMessage(dataMessage* dm);
+
+	string getGameName();
+	void setGameName(string n);
+
+	string getReason();
+	void setReason(string r);
+
+	dataMessage* getDataMessage();
+};
+
