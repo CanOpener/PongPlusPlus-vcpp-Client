@@ -151,12 +151,20 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aliasApprovedMessage.h" />
+    <ClInclude Include="aliasDeniedMessage.h" />
     <ClInclude Include="binaryConverter.h" />
+    <ClInclude Include="Messages.h" />
+    <ClInclude Include="requestAliasMessage.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="aliasApprovedMessage.cpp" />
+    <ClCompile Include="aliasDeniedMessage.cpp" />
     <ClCompile Include="binaryConverter.cpp" />
     <ClCompile Include="client.cpp" />
+    <ClCompile Include="Messages.cpp" />
+    <ClCompile Include="requestAliasMessage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
