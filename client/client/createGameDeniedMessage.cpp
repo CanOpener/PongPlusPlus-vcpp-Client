@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Messages.h"
 #include "binaryConverter.h"
+#include <string>
+#include <cstdint>
 
 createGameDeniedMessage::createGameDeniedMessage() : message(types::CREATE_GAME_DENIED) {}
 createGameDeniedMessage::createGameDeniedMessage(string n, string r) : message(types::CREATE_GAME_DENIED) {

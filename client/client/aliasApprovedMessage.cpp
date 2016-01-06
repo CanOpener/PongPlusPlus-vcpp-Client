@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Messages.h"
 #include "binaryConverter.h"
+#include <cstdint>
 
 aliasApprovedMessage::aliasApprovedMessage() : message(types::ALIAS_APPROVED) {}
 aliasApprovedMessage::aliasApprovedMessage(dataMessage* dm) {

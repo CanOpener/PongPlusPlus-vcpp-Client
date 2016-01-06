@@ -1,9 +1,2 @@
-﻿  client.cpp
-  Generating Code...
-  Compiling...
-  requestAliasMessage.cpp
-  aliasDeniedMessage.cpp
-  aliasApprovedMessage.cpp
-  Messages.cpp
-  Generating Code...
+﻿  startGameMessage.cpp
   client.vcxproj -> C:\Users\mlade\My_Shit\Repos\PongPlusPlus-vcpp-Client\client\Debug\client.exe

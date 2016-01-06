@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Messages.h"
 #include "binaryConverter.h"
+#include <string>
+#include <cstdint>
 
 aliasDeniedMessage::aliasDeniedMessage() : message(types::ALIAS_DENIED) {}
 aliasDeniedMessage::aliasDeniedMessage(string r) : message(types::ALIAS_DENIED) {

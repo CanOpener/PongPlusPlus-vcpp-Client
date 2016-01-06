@@ -175,3 +175,167 @@ public:
 	dataMessage* getDataMessage();
 };
 
+class joinGameMessage : public message
+{
+private:
+	string gameID;
+
+public:
+	joinGameMessage();
+	joinGameMessage(string gid);
+	joinGameMessage(dataMessage* dm);
+
+	string getGameID();
+	void setGameID(string gid);
+
+	dataMessage* getDataMessage();
+};
+
+class joinGameDeniedMessage : public message
+{
+private:
+	string reason;
+
+public:
+	joinGameDeniedMessage();
+	joinGameDeniedMessage(string r);
+	joinGameDeniedMessage(dataMessage* dm);
+
+	string getReason();
+	void setReason(string r);
+
+	dataMessage* getDataMessage();
+};
+
+
+class leaveGameMessage : public message
+{
+public:
+	leaveGameMessage();
+	leaveGameMessage(dataMessage* dm);
+
+	dataMessage* getDataMessage();
+};
+
+class startGameMessage : public message
+{
+private:
+	bool left;
+	uint16_t yPos;
+	uint16_t othersPos;
+	uint16_t ballX;
+	uint16_t ballY;
+	string othersAlias;
+	string gameID;
+	string gameName;
+
+public:
+	startGameMessage();
+	startGameMessage(bool l, uint16_t ypo, uint16_t opo, uint16_t bx, uint16_t by, string oa, string gid, string gn);
+	startGameMessage(dataMessage* dm);
+
+	bool getLeft();
+	void setLeft(bool l);
+
+	uint16_t getYourPosition();
+	void setYourPosition(uint16_t yp);
+
+	uint16_t getOthersPosition();
+	void setOthersPosition(uint16_t op);
+
+	uint16_t getBallX();
+	void setBallX(uint16_t bx);
+
+	uint16_t getBallY();
+	void setBallY(uint16_t by);
+	
+	string getOthersAlias();
+	void setOthersAlias(string oa);
+
+	string getGameID();
+	void setGameID(string gid);
+
+	string getGameName();
+	void setGameName(string gn);
+
+	dataMessage* getDataMessage();
+};
+
+class stateUpdateMessage : public message {
+private:
+	uint8_t currentRound;
+	uint8_t p1Score;
+	uint8_t p2Score;
+	uint16_t p1Pos;
+	uint16_t p2Pos;
+	uint16_t ballX;
+	uint16_t ballY;
+
+public:
+	stateUpdateMessage();
+	stateUpdateMessage(uint8_t cr, uint8_t p1s, uint8_t p2s, uint16_t p1p, uint16_t p2p, uint16_t bx, uint16_t by);
+	stateUpdateMessage(dataMessage* dm);
+
+	uint8_t getCurrentRound();
+	void setCurrentRound(uint8_t cr);
+
+	uint8_t getPlayer1Score();
+	void setPlayer1Score(uint8_t p1s);
+
+	uint8_t getPlayer2Score();
+	void setPlayer2Score(uint8_t p2s);
+	
+	uint16_t getPlayer1Position();
+	void setPlayer1Position(uint16_t p1p);
+
+	uint16_t getPlayer2Position();
+	void setPlayer2Position(uint16_t p2p);
+	
+	uint16_t getBallX();
+	void setBallX(uint16_t bx);
+
+	uint16_t getBallY();
+	void setBallY(uint16_t by);
+
+	dataMessage* getDataMessage();
+};
+
+class gameOverMessage : public message
+{
+private:
+	uint8_t yourScore;
+	uint8_t othersScore;
+	uint8_t status;
+
+public:
+	gameOverMessage();
+	gameOverMessage(uint8_t ys, uint8_t os, uint8_t st);
+	gameOverMessage(dataMessage* dm);
+	
+	uint8_t getYourScore();
+	void setYourScore(uint8_t ys);
+
+	uint8_t getOthersScore();
+	void setOtherScore(uint8_t os);
+
+	uint8_t getStatus();
+	void setStatus(uint8_t st);
+	
+	dataMessage* getDataMessage();
+};
+
+class moveMessage : public message
+{
+private:
+	uint16_t position;
+
+public:
+	moveMessage();
+	moveMessage(uint16_t p);
+	moveMessage(dataMessage* dm);
+
+	uint16_t getPosition();
+	void setPosition(uint16_t ps);
+
+	dataMessage* getDataMessage();
+};

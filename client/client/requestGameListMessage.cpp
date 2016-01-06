@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Messages.h"
 #include "binaryConverter.h"
+#include <cstdint>
 
 requestGameListMessage::requestGameListMessage() : message(types::REQUEST_GAME_LIST) {}
 requestGameListMessage::requestGameListMessage(dataMessage* dm) {

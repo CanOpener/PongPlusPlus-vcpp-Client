@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Messages.h"
 #include "binaryConverter.h"
+#include <string>
+#include <cstdint>
 
 createGameMessage::createGameMessage() : message(types::CREATE_GAME) {}
 createGameMessage::createGameMessage(string n) : message(types::CREATE_GAME) {

@@ -165,9 +165,15 @@
     <ClCompile Include="createGameDeniedMessage.cpp" />
     <ClCompile Include="createGameMessage.cpp" />
     <ClCompile Include="gameListMessage.cpp" />
+    <ClCompile Include="gameOverMessage.cpp" />
+    <ClCompile Include="joinGameDeniedMessage.cpp" />
+    <ClCompile Include="joinGameMessage.cpp" />
+    <ClCompile Include="leaveGameMessage.cpp" />
     <ClCompile Include="Messages.cpp" />
     <ClCompile Include="requestAliasMessage.cpp" />
     <ClCompile Include="requestGameListMessage.cpp" />
+    <ClCompile Include="startGameMessage.cpp" />
+    <ClCompile Include="stateUpdateMessage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

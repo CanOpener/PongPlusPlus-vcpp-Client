@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Messages.h"
 #include "binaryConverter.h"
+#include <string>
+#include <cstdint>
 
 requestAliasMessage::requestAliasMessage() : message(types::REQUEST_ALIAS) {}
 requestAliasMessage::requestAliasMessage(string a) : message(types::REQUEST_ALIAS) {
