@@ -154,6 +154,7 @@
     <ClInclude Include="binaryConverter.h" />
     <ClInclude Include="dataBuffer.h" />
     <ClInclude Include="gameDescriptor.h" />
+    <ClInclude Include="messageQueue.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="streamReader.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="joinGameDeniedMessage.cpp" />
     <ClCompile Include="joinGameMessage.cpp" />
     <ClCompile Include="leaveGameMessage.cpp" />
+    <ClCompile Include="messageQueue.cpp" />
     <ClCompile Include="Messages.cpp" />
     <ClCompile Include="moveMessage.cpp" />
     <ClCompile Include="requestAliasMessage.cpp" />

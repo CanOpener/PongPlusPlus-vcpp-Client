@@ -42,6 +42,9 @@
     <ClInclude Include="dataBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="messageQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client.cpp">
@@ -103,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="moveMessage.cpp">
       <Filter>Source Files\Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="messageQueue.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
