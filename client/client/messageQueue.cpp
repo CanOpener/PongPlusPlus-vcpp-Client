@@ -1,11 +1,10 @@
-#include "stdafx.h"
-#include "SDL_net.h"
-#include "Messages.h"
 #include "messageQueue.h"
-#include <deque>
-#include <mutex>
 
 
+messageQueue& messageQueue::instance() {
+	static messageQueue mq;
+	return mq;
+}
 void messageQueue::addMessage(message* ms) {
 	lock_guard<mutex> locker(mu);
 	que.push_back(ms);

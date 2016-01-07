@@ -4,6 +4,7 @@
 #include "dataBuffer.h"
 #include "streamReader.h"
 #include "SDL_net.h"
+#include "messageQueue.h"
 #include <iostream>
 
 message* streamReader::getMessage(dataMessage dm) {
@@ -74,7 +75,7 @@ void streamReader::startReader(TCPsocket sock) {
 				dataMessage dm(message, read);
 				auto messageToSend = streamReader::getMessage(dm);
 				if (messageToSend != NULL) {
-					// send messageToSend somewhere
+					messageQueue::instance().addMessage(messageToSend);
 				}
 				dm.scrubData();
 				delete[] message;
