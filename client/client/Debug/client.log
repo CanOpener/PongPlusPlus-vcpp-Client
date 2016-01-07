@@ -1,2 +1,3 @@
-﻿  streamReader.cpp
-  client.vcxproj -> C:\Users\mlade\My_Shit\Repos\PongPlusPlus-vcpp-client\client\Debug\client.exe
+﻿  client.cpp
+c:\users\mlade\my_shit\repos\pongplusplus-vcpp-client\client\client\client.cpp(60): warning C4715: 'getText': not all control paths return a value
+  client.vcxproj -> C:\Users\mlade\My_Shit\Repos\PongPlusPlus-vcpp-Client\client\Debug\client.exe
