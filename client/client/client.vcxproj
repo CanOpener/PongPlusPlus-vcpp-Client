@@ -152,9 +152,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryConverter.h" />
+    <ClInclude Include="dataBuffer.h" />
     <ClInclude Include="gameDescriptor.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="streamReader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="aliasApprovedMessage.cpp" />
@@ -164,6 +166,7 @@
     <ClCompile Include="createGameApprovedMessage.cpp" />
     <ClCompile Include="createGameDeniedMessage.cpp" />
     <ClCompile Include="createGameMessage.cpp" />
+    <ClCompile Include="dataBuffer.cpp" />
     <ClCompile Include="gameListMessage.cpp" />
     <ClCompile Include="gameOverMessage.cpp" />
     <ClCompile Include="joinGameDeniedMessage.cpp" />
@@ -174,6 +177,7 @@
     <ClCompile Include="requestGameListMessage.cpp" />
     <ClCompile Include="startGameMessage.cpp" />
     <ClCompile Include="stateUpdateMessage.cpp" />
+    <ClCompile Include="streamReader.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

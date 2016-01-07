@@ -36,6 +36,12 @@
     <ClInclude Include="gameDescriptor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="streamReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dataBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="client.cpp">
@@ -88,6 +94,12 @@
     </ClCompile>
     <ClCompile Include="gameOverMessage.cpp">
       <Filter>Source Files\Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="dataBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="streamReader.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
