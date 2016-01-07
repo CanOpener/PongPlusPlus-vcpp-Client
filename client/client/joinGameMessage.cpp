@@ -9,11 +9,10 @@ joinGameMessage::joinGameMessage() : message(types::JOIN_GAME) {};
 joinGameMessage::joinGameMessage(string gid) : message(types::JOIN_GAME) {
 	gameID = gid;
 }
-joinGameMessage::joinGameMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+joinGameMessage::joinGameMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	gameID = binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 string joinGameMessage::getGameID() {

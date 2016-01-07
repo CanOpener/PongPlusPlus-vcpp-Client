@@ -7,19 +7,6 @@
 dataMessage::dataMessage(BYTE* d, int size) {
 	data = d;
 	dataLength = size;
-	prefixed = false;
-	destroyed = false;
-}
-dataMessage::~dataMessage() {
-	scrubData();
-}
-
-bool dataMessage::isDestroyed() {
-	return destroyed;
-}
-
-bool dataMessage::isPrefixed() {
-	return prefixed;
 }
 int dataMessage::getDataLength() {
 	return dataLength;
@@ -30,19 +17,6 @@ BYTE* dataMessage::getData() {
 
 void dataMessage::scrubData() {
 	delete[] data;
-	destroyed = true;
-}
-
-void dataMessage::prefix() {
-	auto newData = new BYTE[dataLength + 2]; // 16 bit prefix
-	auto len16 = (uint16_t)dataLength;
-	auto seeker = newData;
-	binaryConverter::writeUint16(&seeker, len16);
-	memcpy(seeker, data, dataLength);
-	delete[] data;
-	data = newData;
-	dataLength += 2;
-	prefixed = true;
 }
 
 

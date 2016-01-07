@@ -16,8 +16,8 @@ startGameMessage::startGameMessage(bool l, uint16_t ypo, uint16_t opo,
 	gameID		= gid;
 	gameName	= gameName;
 }
-startGameMessage::startGameMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+startGameMessage::startGameMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	left		= (binaryConverter::readUint8(&seeker) != 0);
 	yPos		= binaryConverter::readUint16(&seeker);
@@ -27,7 +27,6 @@ startGameMessage::startGameMessage(dataMessage* dm) {
 	othersAlias = binaryConverter::readString(&seeker);
 	gameID		= binaryConverter::readString(&seeker);
 	gameName	= binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 bool startGameMessage::getLeft() {

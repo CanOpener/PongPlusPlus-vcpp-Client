@@ -15,8 +15,8 @@ stateUpdateMessage::stateUpdateMessage(uint8_t cr, uint8_t p1s, uint8_t p2s,
 	ballX		 = bx;
 	ballY		 = by;
 }
-stateUpdateMessage::stateUpdateMessage(dataMessage* dm) {
-	auto seeker  = dm->getData();
+stateUpdateMessage::stateUpdateMessage(dataMessage dm) {
+	auto seeker  = dm.getData();
 	messageType  = binaryConverter::readUint8(&seeker);
 	currentRound = binaryConverter::readUint8(&seeker);
 	p1Score		 = binaryConverter::readUint8(&seeker);
@@ -25,7 +25,6 @@ stateUpdateMessage::stateUpdateMessage(dataMessage* dm) {
 	p2Pos		 = binaryConverter::readUint16(&seeker);
 	ballX		 = binaryConverter::readUint16(&seeker);
 	ballY		 = binaryConverter::readUint16(&seeker);
-	delete dm;
 }
 
 uint8_t stateUpdateMessage::getCurrentRound() {

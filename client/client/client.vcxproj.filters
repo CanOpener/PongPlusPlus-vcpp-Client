@@ -101,5 +101,8 @@
     <ClCompile Include="streamReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="moveMessage.cpp">
+      <Filter>Source Files\Messages</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

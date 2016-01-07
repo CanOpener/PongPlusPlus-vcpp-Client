@@ -9,13 +9,12 @@ gameOverMessage::gameOverMessage(uint8_t ys, uint8_t os, uint8_t st) : message(t
 	othersScore = os;
 	status		= st;
 }
-gameOverMessage::gameOverMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+gameOverMessage::gameOverMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	yourScore	= binaryConverter::readUint8(&seeker);
 	othersScore = binaryConverter::readUint8(&seeker);
 	status		= binaryConverter::readUint8(&seeker);
-	delete dm;
 }
 
 uint8_t gameOverMessage::getYourScore() {

@@ -4,10 +4,9 @@
 #include <cstdint>
 
 aliasApprovedMessage::aliasApprovedMessage() : message(types::ALIAS_APPROVED) {}
-aliasApprovedMessage::aliasApprovedMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+aliasApprovedMessage::aliasApprovedMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
-	delete dm;
 }
 
 dataMessage* aliasApprovedMessage::getDataMessage() {

@@ -8,22 +8,16 @@ using namespace std;
 
 class dataMessage {
 private:
-	bool destroyed;
-	bool prefixed;
 	int dataLength;
 	BYTE* data;
 
 public:
 	dataMessage(BYTE* d, int size);
-	~dataMessage();
 
-	bool isDestroyed();
-	bool isPrefixed();
 	int getDataLength();
 	BYTE* getData();
 
 	void scrubData();
-	void prefix();
 };
 
 enum types : uint8_t {
@@ -65,7 +59,7 @@ private:
 public:
 	requestAliasMessage();
 	requestAliasMessage(string a);
-	requestAliasMessage(dataMessage* dm);
+	requestAliasMessage(dataMessage dm);
 
 	string getAlias();
 	void setAlias(string a);
@@ -77,7 +71,7 @@ class aliasApprovedMessage : public message
 {
 public:
 	aliasApprovedMessage();
-	aliasApprovedMessage(dataMessage* dm);
+	aliasApprovedMessage(dataMessage dm);
 
 	dataMessage* getDataMessage();
 };
@@ -88,7 +82,7 @@ class aliasDeniedMessage : public message
 public:
 	aliasDeniedMessage();
 	aliasDeniedMessage(string r);
-	aliasDeniedMessage(dataMessage* dm);
+	aliasDeniedMessage(dataMessage dm);
 
 	string getReason();
 	void setReason(string r);
@@ -100,7 +94,7 @@ class requestGameListMessage : public message
 {
 public:
 	requestGameListMessage();
-	requestGameListMessage(dataMessage* dm);
+	requestGameListMessage(dataMessage dm);
 
 	dataMessage* getDataMessage();
 };
@@ -113,7 +107,7 @@ private:
 public:
 	gameListMessage();
 	gameListMessage(vector<gameDescriptor> vgd);
-	gameListMessage(dataMessage* dm);
+	gameListMessage(dataMessage dm);
 
 	vector<gameDescriptor> getGames();
 	void setGames(vector<gameDescriptor> vgd);
@@ -128,7 +122,7 @@ private:
 public:
 	createGameMessage();
 	createGameMessage(string n);
-	createGameMessage(dataMessage* dm);
+	createGameMessage(dataMessage dm);
 
 	string getGameName();
 	void setGameName(string n);
@@ -145,7 +139,7 @@ private:
 public:
 	createGameApprovedMessage();
 	createGameApprovedMessage(string id, string n);
-	createGameApprovedMessage(dataMessage* dm);
+	createGameApprovedMessage(dataMessage dm);
 
 	string getGameID();
 	void setGameID(string id);
@@ -164,7 +158,7 @@ private:
 public:
 	createGameDeniedMessage();
 	createGameDeniedMessage(string n, string r);
-	createGameDeniedMessage(dataMessage* dm);
+	createGameDeniedMessage(dataMessage dm);
 
 	string getGameName();
 	void setGameName(string n);
@@ -183,7 +177,7 @@ private:
 public:
 	joinGameMessage();
 	joinGameMessage(string gid);
-	joinGameMessage(dataMessage* dm);
+	joinGameMessage(dataMessage dm);
 
 	string getGameID();
 	void setGameID(string gid);
@@ -199,7 +193,7 @@ private:
 public:
 	joinGameDeniedMessage();
 	joinGameDeniedMessage(string r);
-	joinGameDeniedMessage(dataMessage* dm);
+	joinGameDeniedMessage(dataMessage dm);
 
 	string getReason();
 	void setReason(string r);
@@ -212,7 +206,7 @@ class leaveGameMessage : public message
 {
 public:
 	leaveGameMessage();
-	leaveGameMessage(dataMessage* dm);
+	leaveGameMessage(dataMessage dm);
 
 	dataMessage* getDataMessage();
 };
@@ -232,7 +226,7 @@ private:
 public:
 	startGameMessage();
 	startGameMessage(bool l, uint16_t ypo, uint16_t opo, uint16_t bx, uint16_t by, string oa, string gid, string gn);
-	startGameMessage(dataMessage* dm);
+	startGameMessage(dataMessage dm);
 
 	bool getLeft();
 	void setLeft(bool l);
@@ -274,7 +268,7 @@ private:
 public:
 	stateUpdateMessage();
 	stateUpdateMessage(uint8_t cr, uint8_t p1s, uint8_t p2s, uint16_t p1p, uint16_t p2p, uint16_t bx, uint16_t by);
-	stateUpdateMessage(dataMessage* dm);
+	stateUpdateMessage(dataMessage dm);
 
 	uint8_t getCurrentRound();
 	void setCurrentRound(uint8_t cr);
@@ -310,7 +304,7 @@ private:
 public:
 	gameOverMessage();
 	gameOverMessage(uint8_t ys, uint8_t os, uint8_t st);
-	gameOverMessage(dataMessage* dm);
+	gameOverMessage(dataMessage dm);
 	
 	uint8_t getYourScore();
 	void setYourScore(uint8_t ys);
@@ -332,7 +326,7 @@ private:
 public:
 	moveMessage();
 	moveMessage(uint16_t p);
-	moveMessage(dataMessage* dm);
+	moveMessage(dataMessage dm);
 
 	uint16_t getPosition();
 	void setPosition(uint16_t ps);

@@ -8,11 +8,10 @@ joinGameDeniedMessage::joinGameDeniedMessage() : message(types::JOIN_GAME_DENIED
 joinGameDeniedMessage::joinGameDeniedMessage(string r) : message(types::JOIN_GAME_DENIED) {
 	reason = r;
 }
-joinGameDeniedMessage::joinGameDeniedMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+joinGameDeniedMessage::joinGameDeniedMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	reason = binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 string joinGameDeniedMessage::getReason() {

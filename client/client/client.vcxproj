@@ -173,6 +173,7 @@
     <ClCompile Include="joinGameMessage.cpp" />
     <ClCompile Include="leaveGameMessage.cpp" />
     <ClCompile Include="Messages.cpp" />
+    <ClCompile Include="moveMessage.cpp" />
     <ClCompile Include="requestAliasMessage.cpp" />
     <ClCompile Include="requestGameListMessage.cpp" />
     <ClCompile Include="startGameMessage.cpp" />

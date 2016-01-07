@@ -9,12 +9,11 @@ createGameDeniedMessage::createGameDeniedMessage(string n, string r) : message(t
 	gameName = n;
 	reason = r;
 }
-createGameDeniedMessage::createGameDeniedMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+createGameDeniedMessage::createGameDeniedMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	gameName	= binaryConverter::readString(&seeker);
 	reason		= binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 string createGameDeniedMessage::getGameName() {

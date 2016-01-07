@@ -4,10 +4,9 @@
 #include <cstdint>
 
 requestGameListMessage::requestGameListMessage() : message(types::REQUEST_GAME_LIST) {}
-requestGameListMessage::requestGameListMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+requestGameListMessage::requestGameListMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
-	delete dm;
 }
 
 dataMessage* requestGameListMessage::getDataMessage() {

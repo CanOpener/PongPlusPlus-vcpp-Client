@@ -9,12 +9,11 @@ createGameApprovedMessage::createGameApprovedMessage(string id, string n) : mess
 	gameID = id;
 	gameName = n;
 }
-createGameApprovedMessage::createGameApprovedMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+createGameApprovedMessage::createGameApprovedMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	gameID		= binaryConverter::readString(&seeker);
 	gameName	= binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 string createGameApprovedMessage::getGameID() {

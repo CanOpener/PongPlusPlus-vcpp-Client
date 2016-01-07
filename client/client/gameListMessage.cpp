@@ -12,8 +12,8 @@ gameListMessage::gameListMessage() : message(types::GAME_LIST) {}
 gameListMessage::gameListMessage(vector<gameDescriptor> vgd) : message(types::GAME_LIST) {
 	games = vgd;
 }
-gameListMessage::gameListMessage(dataMessage* dm) {
-	auto seeker   = dm->getData();
+gameListMessage::gameListMessage(dataMessage dm) {
+	auto seeker   = dm.getData();
 	messageType   = binaryConverter::readUint8(&seeker);
 	auto numGames = binaryConverter::readUint16(&seeker);
 	for (int i=0; i < numGames; i++) {
@@ -24,7 +24,6 @@ gameListMessage::gameListMessage(dataMessage* dm) {
 		gd.initiator = binaryConverter::readString(&seeker);
 		games.push_back(gd);
 	}
-	delete dm;
 }
 
 vector<gameDescriptor> gameListMessage::getGames() {

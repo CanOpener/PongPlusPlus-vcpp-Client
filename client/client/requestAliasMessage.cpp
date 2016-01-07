@@ -8,11 +8,10 @@ requestAliasMessage::requestAliasMessage() : message(types::REQUEST_ALIAS) {}
 requestAliasMessage::requestAliasMessage(string a) : message(types::REQUEST_ALIAS) {
 	alias = a;
 }
-requestAliasMessage::requestAliasMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+requestAliasMessage::requestAliasMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	alias		= binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 string requestAliasMessage::getAlias() {

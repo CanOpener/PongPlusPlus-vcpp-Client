@@ -8,11 +8,10 @@ aliasDeniedMessage::aliasDeniedMessage() : message(types::ALIAS_DENIED) {}
 aliasDeniedMessage::aliasDeniedMessage(string r) : message(types::ALIAS_DENIED) {
 	reason = r;
 }
-aliasDeniedMessage::aliasDeniedMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+aliasDeniedMessage::aliasDeniedMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	reason		= binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 string aliasDeniedMessage::getReason() {

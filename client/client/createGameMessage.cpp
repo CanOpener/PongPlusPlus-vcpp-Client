@@ -8,11 +8,10 @@ createGameMessage::createGameMessage() : message(types::CREATE_GAME) {}
 createGameMessage::createGameMessage(string n) : message(types::CREATE_GAME) {
 	gameName = n;
 }
-createGameMessage::createGameMessage(dataMessage* dm) {
-	auto seeker = dm->getData();
+createGameMessage::createGameMessage(dataMessage dm) {
+	auto seeker = dm.getData();
 	messageType = binaryConverter::readUint8(&seeker);
 	gameName	= binaryConverter::readString(&seeker);
-	delete dm;
 }
 
 string createGameMessage::getGameName() {
